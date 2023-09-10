@@ -31,36 +31,36 @@
               >Please enter a valid email</span
             >
             <hr />
-            <div>
-              <label for="Subscription">Select your Subscription</label>
-              <select
-                name="Subscription"
-                id="Subscription"
-                [ngModel]="defaultSub"
-              >
-                <option value="basic">Basic</option>
-                <option value="advanced">Advanced</option>
-                <option value="pro">Pro</option>
-              </select>
-            </div>
+            <label for="password">Password</label>
+            <input
+              type="text"
+              id="passsword"
+              class="form-control"
+              name="password"
+              required
+              ngModel
+              #password="ngModel"
+            />
+          </div>
+          <span class="help-block" *ngIf="!password.valid && password.touched"
+            >Please enter a valid password</span
+          >
+          <div>
             <hr />
-            <div>
-              <label for="password">Password</label>
-              <input
-                type="text"
-                id="passsword"
-                class="form-control"
-                name="password"
-                required
-                ngModel
-                #password="ngModel"
-              />
-            </div>
-            <span class="help-block" *ngIf="!password.valid && password.touched"
-              >Please enter a valid password</span
+            <label for="Subscription">Select your Subscription</label>
+            <select
+              name="Subscription"
+              id="Subscription"
+              [ngModel]="defaultSub"
             >
+              <option value="basic">Basic</option>
+              <option value="advanced">Advanced</option>
+              <option value="pro">Pro</option>
+            </select>
+          </div>
+          <hr />
+          <div>
             <button class="btn btn-primary" type="submit">Submit</button>
-            <hr />
             <div class="row" *ngIf="submitted">
               <div class="col-xs-12">
                 <h3>Your data</h3>
