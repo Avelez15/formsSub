@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'forms-assignment';
+  @ViewChild('f') subscriptionForm:NgForm;
+  defaultSub = 'advanced';
+
+  subscription={
+    email: '',
+    password:''
+  }
+
+  submitted = false;
+
+  onSubmit(form:NgForm) {
+    this.subscription.email = this.subscriptionForm.value.userData.email;
+    this.subscription.password = this.subscriptionForm.value.userData.password;
+    this.submitted = true;
+
+    this.subscriptionForm.reset();
+  }
 }
